@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="retro">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/stylesheets/style.css">
+   <title>Fav Blogger List</title>
+   <!-- <style>
+       div{
+            width: 300px;
+            height: 320px;
+            background-color: bisque;
+            border: 1px solid gold;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+        }
+   </style> -->
+</head>
+<body>
+   <% include ../partials/navbar %>
+   <div class="text-center text-3xl mb-3">Fav Post List</div>
+    <% for (var i = 0; i < posts.length; i++){%>
+        <div class="card w-96 bg-cyan-100 drop-shadow-md hover:drop-shadow-xl inline-block m-2">
+            <figure class="px-10 pt-10">
+              <img src="<%= posts[i].image %>" width="230px" height="150px" alt="<%= posts[i].title %>" class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title"><%= posts[i].title %>!</h2>
+              <p><%= posts[i].author.name %></p>
+              <div class="card-actions">
+                <a href="/postdetail/<%= posts[i]._id %>" class="btn  bg-blue-500 text-white font-semibold">More Detail</a>
+              </div>
+            </div>
+          </div>
+        <%}%>
+</body>
+</html>
